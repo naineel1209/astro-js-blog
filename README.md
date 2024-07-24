@@ -9,7 +9,9 @@
 - [DONE] add a view counter to articles
 - [DONE] make a shareable button
 - [DONE] make author to about-me
-- make images an cdn
+- [DONE] make images an cdn
+- [DONE] sanity deployed
+- vercel deploy failure
 - add all the published articles on the sanity
 - solve the issue of deployment failing
 - change the theme to strictly dark mode
