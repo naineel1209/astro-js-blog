@@ -12,7 +12,11 @@
       ],
       "tslib": [
         "./node_modules/tslib"
+      ],
+      "@/*": [
+        "./src/*"
       ]
-    }
+    },
+    "baseUrl": "."
   },
 }
