@@ -1,21 +1,16 @@
 ---
-import { Image } from "astro:assets";
-import HighlightedHeading from "../../components/utils/HighlightedHeading.astro";
-import {
-  getArticle,
-  getSanityArticleBySlug,
-  incrementArticleViews,
-} from "../../data/articles.js";
-import { formatDate } from "../../utils.ts";
-import MainLayout from "../../layouts/MainLayout.astro";
-import Tags from "../../components/utils/Tags.astro";
-import StarredArticles from "../../components/subcomponents/articlesbox/StarredArticles.astro";
 import { Markdown } from "astro-remote";
-import type { TArticle } from "../../types/types";
-import Heading from "../../components/markdown/Heading.astro";
 import CodeBlock from "../../components/markdown/CodeBlock.astro";
 import CodeSpan from "../../components/markdown/CodeSpan.astro";
+import Heading from "../../components/markdown/Heading.astro";
+import StarredArticles from "../../components/subcomponents/articlesbox/StarredArticles.astro";
 import ShareableBox from "../../components/subcomponents/shareable-box/shareable-box.astro";
+import HighlightedHeading from "../../components/utils/HighlightedHeading.astro";
+import Tags from "../../components/utils/Tags.astro";
+import { getSanityArticleBySlug } from "../../data/articles.js";
+import MainLayout from "../../layouts/MainLayout.astro";
+import type { TArticle } from "../../types/types";
+import { formatDate } from "../../utils.ts";
 
 let article: TArticle | null = null;
 
@@ -41,8 +36,6 @@ const {
   views,
   imageUrl,
 } = article;
-
-//TODO - add a links maker in an article
 ---
 
 <MainLayout title={title} margin_small={true}>

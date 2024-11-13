@@ -1,6 +1,6 @@
 import { incrementArticleViews } from "../../data/articles";
 
-export async function PATCH({ request }: { params: any, request: Request }) {
+export async function PATCH({ params, request }: { params: any, request: Request }) {
     const url = new URL(request.url);
 
     const articleId = url.searchParams.get("articleId");
