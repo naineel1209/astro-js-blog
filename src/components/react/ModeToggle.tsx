@@ -1,16 +1,15 @@
-import { Moon, Sun } from "lucide-react";
-import * as React from "react";
+import { Moon, Sun } from "lucide-react"
+import * as React from "react"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu"
 
-
-function ModeToggle(): React.FC {
+export default function ModeToggle() {
     const [theme, setThemeState] = React.useState<
         "theme-light" | "dark" | "system"
     >("theme-light")
@@ -28,12 +27,12 @@ function ModeToggle(): React.FC {
         document.documentElement.classList[isDark ? "add" : "remove"]("dark")
     }, [theme])
 
-
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="icon">
-                    <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    <Sun className="text-stone-800 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 border-stone-200 dark:border-stone-800
+                    " />
                     <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                     <span className="sr-only">Toggle theme</span>
                 </Button>
@@ -50,7 +49,5 @@ function ModeToggle(): React.FC {
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
-    );
+    )
 }
-
-export default ModeToggle;
