@@ -1,20 +1,41 @@
 ---
-// importing the React component
-import NavList from "./subcomponents/navbar/navlist.astro";
+// Importing the React component and logo
+import NavigationMenuHelper from ".//react//NavigationMenuHelper";
 import NavtxtLogo from "./subcomponents/navbar/navtxt-logo.astro";
+
+const navListItems = [
+  {
+    id: 0,
+    name: "Home",
+    url: "/",
+  },
+  {
+    id: 1,
+    name: "About Me",
+    url: "/about-me",
+  },
+  {
+    id: 2,
+    name: "Articles",
+    url: "/articles",
+  },
+  {
+    id: 3,
+    name: "Code Snippets",
+    url: "/code-snippets",
+  },
+  {
+    id: 4,
+    name: "ModeToggle",
+    url: "/mode-toggle",
+    isModeToggle: true,
+  },
+];
 ---
 
-<style>
-  .gradient-border {
-    position: relative;
-    padding: 20px;
-    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Ensure pseudo-element does not overflow the parent */
-  }
-</style>
 <nav
-  class="w-[100%] flex items-center justify-between p-[1rem] bg-gradient-to-r from-blue-400 to-blue-600 border-bottom-2 gradient-border"
+  class="w-full flex items-center justify-center p-4 bg-white dark:bg-black shadow-md dark:shadow-none"
 >
   <NavtxtLogo />
-  <NavList />
+  <NavigationMenuHelper navItems={navListItems} client:idle />
 </nav>
