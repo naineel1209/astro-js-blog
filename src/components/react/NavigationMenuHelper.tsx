@@ -32,9 +32,16 @@ export default function NavigationMenuHelper({
             variant="outline"
             className="text-stone-800 dark:text-stone-200 hover:scale-103 font-bold text-md transition-all duration-200 mx-1 hover:mx-4 border-0"
           >
-            <a href={navItem.url}>
-              {navItem.icon}
-              {navItem.name}
+            <a
+              href={navItem.url}
+              className="flex items-center justify-center gap-2 hover:gap-2"
+            >
+              <span>
+                {navItem.icon}
+              </span>
+              <span>
+                {navItem.name}
+              </span>
             </a>
           </Button>
         );
