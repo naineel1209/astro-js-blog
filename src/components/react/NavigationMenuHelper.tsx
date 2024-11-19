@@ -5,6 +5,7 @@ interface NavigationMenuHelperProps {
   navItems: {
     id: number;
     name: string;
+    icon: any;
     url: string;
     isModeToggle?: boolean;
   }[];
@@ -20,7 +21,7 @@ export default function NavigationMenuHelper({
           return (
             <ModeToggle
               key={navItem.id}
-              className="text-stone-800 dark:text-stone-200 hover:scale-101 font-bold text-md transition-all duration-200 mx-1 hover:mx-3 border-0"
+              className="text-stone-800 dark:text-stone-200 hover:scale-101 font-bold text-md transition-all duration-200 mx-1 hover:mx-4 border-0"
             />
           );
         }
@@ -29,9 +30,10 @@ export default function NavigationMenuHelper({
             key={navItem.id}
             asChild
             variant="outline"
-            className="text-stone-800 dark:text-stone-200 hover:scale-101 font-bold text-md transition-all duration-200 mx-1 hover:mx-3 border-0"
+            className="text-stone-800 dark:text-stone-200 hover:scale-103 font-bold text-md transition-all duration-200 mx-1 hover:mx-4 border-0"
           >
             <a href={navItem.url}>
+              {navItem.icon}
               {navItem.name}
             </a>
           </Button>

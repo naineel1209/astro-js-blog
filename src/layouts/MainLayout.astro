@@ -1,12 +1,11 @@
 ---
 import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../constants.ts";
 
 const { title = "Home", margin_small = false } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -34,7 +33,7 @@ const { title = "Home", margin_small = false } = Astro.props;
   </head>
   <body>
     <header>
-      <Navbar />
+      <Navbar client:idle />
     </header>
     <main
       class={`${margin_small ? "mx-[5rem]" : "mx-[10rem]"} my-[3rem] min-h-[80vh]`}
