@@ -51,7 +51,7 @@ const navListItems: NavItem[] = [
 // Main navigation component
 const Navbar: React.FC = () => {
   return (
-    <nav className="w-full flex items-center justify-center p-4 bg-white dark:bg-black shadow-md dark:shadow-none">
+    <nav className="w-full flex items-center justify-center p-4 shadow-md dark:shadow-none">
       <NavtxtLogo />
       <NavigationMenuHelper navItems={navListItems} />
     </nav>

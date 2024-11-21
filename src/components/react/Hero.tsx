@@ -1,82 +1,64 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Autoplay, Pagination } from 'swiper/modules'
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/mousewheel';
-import 'swiper/css/autoplay';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "../ui/carousel";
+import ClassNames from "embla-carousel-class-names";
 
 const Hero = () => {
     const categories = [
-        {
-            id: 1,
-            name: 'Tech Blogs',
-            bgColor: 'bg-gradient-to-r from-blue-500 to-indigo-500',
-            txtColor: 'text-white',
-        },
-        {
-            id: 2,
-            name: 'Tech Tutorials',
-            bgColor: 'bg-gradient-to-r from-green-500 to-teal-500',
-            txtColor: 'text-white',
-        },
-        {
-            id: 3,
-            name: 'Code Snippets',
-            bgColor: 'bg-gradient-to-r from-red-500 to-pink-500',
-            txtColor: 'text-white',
-        },
-        {
-            id: 4,
-            name: 'Projects',
-            bgColor: 'bg-gradient-to-r from-yellow-500 to-orange-500',
-            txtColor: 'text-white',
-        },
+        { id: 1, name: "Tech Blogs" },
+        { id: 2, name: "Tech Tutorials" },
+        { id: 3, name: "Code Snippets" },
+        { id: 4, name: "Projects" },
     ];
 
     return (
-        <div className={'swiper mb-[3rem]'}> <style>
-            {`@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-                .heading {
-                    font - family: "Montserrat", sans-serif;
-                font-weight: 900;
-                font-optical-sizing: auto;
-                font-style: normal;
-                letter-spacing: 0.2rem;
-                text-transform: uppercase;
-                }`
-            }
-        </style>
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={30}
-                grabCursor={true}
-                pagination={{
-                    clickable: true,
+        <div className="relative mx-auto mt-8 w-[100%] md:w-[75%] border-2">
+            {/* Carousel Component */}
+            <Carousel
+                opts={{
+                    loop: true,
                 }}
-                modules={[Pagination, Autoplay, Mousewheel]}
-                className="mySwiper"
-                loop={true}
-                autoplay={{
-                    delay: 2000
-                }}
-                speed={500}
-                mousewheel={true}
-                style={{ height: '100%' }}
+                plugins={[
+                    ClassNames({
+                        snapped: ["scale-105", "opacity-100", "z-10"], // Active item classes split into an array
+                        draggable: ["cursor-grab"], // Draggable class
+                        dragging: ["cursor-grabbing"], // Dragging class
+                    }),
+                ]}
             >
-                {
-                    categories.map((category) => {
-                        return (
-                            <SwiperSlide key={category.id} className={`swiper-slide justify-center p-[2rem] heading ${category.bgColor} rounded-lg text-center`}>
-                                <span className={`${category.txtColor} text-[5rem]`} >{category.name}</span>
-                            </SwiperSlide>
-                        )
-                    })
-                }
-            </Swiper>
+                <CarouselContent>
+                    {categories.map((category) => (
+                        <CarouselItem
+                            key={category.id}
+                            className="flex-shrink-0 w-64 h-40 flex items-center justify-center bg-stone-950 dark:bg-white rounded-lg shadow-lg text-center text-xl font-semibold text-white dark:text-gray-900 transition-all duration-300 opacity-50 scale-95"
+                        >
+                            {category.name}
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+
+                {/* Previous Button */}
+                <CarouselPrevious
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-100 dark:bg-stone-800 hover:bg-gray-200 dark:hover:bg-stone-700 text-gray-900 dark:text-gray-200 p-2 rounded-full shadow-md"
+                    aria-label="Previous Slide"
+                >
+                    ◀
+                </CarouselPrevious>
+
+                {/* Next Button */}
+                <CarouselNext
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-100 dark:bg-stone-800 hover:bg-gray-200 dark:hover:bg-stone-700 text-gray-900 dark:text-gray-200 p-2 rounded-full shadow-md"
+                    aria-label="Next Slide"
+                >
+                    ▶
+                </CarouselNext>
+            </Carousel>
         </div>
-    )
-}
+    );
+};
 
 export default Hero;

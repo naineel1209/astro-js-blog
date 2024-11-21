@@ -56,7 +56,9 @@ const { title = "Home", margin_small = false } = Astro.props;
     <meta name="description" content={SITE_DESCRIPTION} />
     <title>{SITE_TITLE} - {title}</title>
   </head>
-  <body>
+  <body
+    class={`bg-white dark:bg-stone-950 text-black dark:text-white font-body`}
+  >
     <header>
       <Navbar client:load />
     </header>

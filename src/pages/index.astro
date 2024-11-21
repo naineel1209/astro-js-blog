@@ -5,8 +5,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Home">
-  <div>
-    <HeroComponent client:only="react" />
+  <div
+    class="flex flex-col items-center justify-center min-h-screen py-2 bg-white dark:bg-stone-950"
+  >
+    <HeroComponent client:load />
     <ArticlesBox />
   </div>
 </MainLayout>
