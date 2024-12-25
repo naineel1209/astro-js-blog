@@ -39,7 +39,7 @@ const {
 
 <MainLayout title={title} margin_small={true}>
   <div class="flex gap-[1rem]">
-    <div class="w-[70%]">
+    <div class="w-[75%]">
       <div class="border-b-4">
         <a
           href="/articles"
@@ -64,7 +64,9 @@ const {
               >{author.name}</a
             >
           </p>
-          <div class="flex items-center justify-center gap-[.5rem] text-yellow-500">
+          <div
+            class="flex items-center justify-center gap-[.5rem] text-yellow-500"
+          >
             <i class="bx bx-show"></i>
             <p>{views || 0} views</p>
           </div>
@@ -77,19 +79,24 @@ const {
       </div>
       <div class="markdown-body mt-2">
         <div class="border-b-2" id="toc"></div>
-        <Markdown
-          content={content}
-          sanitize={{ allowComponents: true, allowCustomElements: true }}
-          components={{
-            Heading,
-            CodeBlock,
-            CodeSpan,
-          }}
-        />
+        <div class="my-5">
+          <Markdown
+            content={content}
+            sanitize={{ allowComponents: true, allowCustomElements: true }}
+            components={{
+              Heading,
+              CodeBlock,
+              CodeSpan,
+            }}
+            class:list={""}
+          />
+        </div>
       </div>
     </div>
-    <div class="w-[30%] h-full mt-[3.5rem]">
-      <StarredArticles class:list={["border-t-2 border-l-2 border-gray-200 dark:border-gray-800"]} />
+    <div
+      class="w-[25%] h-full mt-[3.5rem] border-t-2 border-l-2 border-gray-200 dark:border-gray-800"
+    >
+      <StarredArticles class:list={[""]} />
       <ShareableBox link={Astro.url.href} />
     </div>
   </div>
@@ -158,11 +165,9 @@ const {
   </script>
 
   <style is:global>
-    /* styles.css */
-
     /* Base styles for the copy button */
     .copy-button {
-      background-color: #007bff;
+      background-color: #007bff; /* Light mode blue */
       color: white;
 
       position: absolute;
@@ -175,16 +180,23 @@ const {
       transition: background-color 0.3s ease;
     }
 
-    /* Hover styles for the copy button */
     .copy-button:hover {
-      background-color: #0056b3;
+      background-color: #0056b3; /* Light mode hover */
+    }
+
+    .dark .copy-button {
+      background-color: #0056b3; /* Dark mode blue */
+    }
+
+    .dark .copy-button:hover {
+      background-color: #003d80; /* Dark mode hover */
     }
 
     /* General Styles */
     .markdown-body {
       font-family: "Sofia Sans", sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: #333; /* Light mode text */
       text-align: justify;
       padding: 1rem;
       font-optical-sizing: auto;
@@ -192,68 +204,108 @@ const {
       font-style: normal;
     }
 
+    .dark .markdown-body {
+      color: #ddd; /* Dark mode text */
+    }
+
     /* Headings */
     .title-heading h1 {
       font-size: 2.5rem;
       font-family: "Sofia Sans", sans-serif;
       margin-bottom: 1rem;
+      color: #3f3f46; /* text-stone-950 */
+    }
+
+    .dark .title-heading h1 {
+      color: #d1d5db; /* Light gray for dark mode */
     }
 
     .markdown-body h2 {
       font-size: 2rem;
       font-weight: bolder;
       margin-bottom: 1rem;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #eee; /* Light mode border */
       padding-bottom: 0.5rem;
+      color: #3f3f46; /* text-stone-950 */
     }
 
+    .dark .markdown-body h2 {
+      border-bottom: 1px solid #444; /* Dark mode border */
+      color: #d1d5db; /* Light gray for dark mode */
+    }
+
+    /* Light Mode */
     .markdown-body h3 {
-      font-size: 1.75rem;
-      font-weight: bolder;
-      margin-bottom: 0.75rem;
+      font-size: 1.75rem; /* Example font size for h3 */
+      color: #3f3f46; /* text-stone-950 */
     }
 
     .markdown-body h4 {
-      font-size: 1.5rem;
-      font-weight: bolder;
-      margin-bottom: 0.5rem;
+      font-size: 1.5rem; /* Example font size for h4 */
+      color: #3f3f46; /* text-stone-950 */
     }
 
     .markdown-body h5 {
-      font-size: 1.25rem;
-      font-weight: bolder;
-      margin-bottom: 0.5rem;
+      font-size: 1.25rem; /* Example font size for h5 */
+      color: #3f3f46; /* text-stone-950 */
     }
 
     .markdown-body h6 {
-      font-size: 1rem;
-      font-weight: bolder;
-      margin-bottom: 0.5rem;
+      font-size: 1.125rem; /* Example font size for h6 */
+      color: #3f3f46; /* text-stone-950 */
+    }
+
+    /* Dark Mode */
+    .dark .markdown-body h3 {
+      font-size: 1.75rem; /* Example font size for h3 */
+      color: #d1d5db; /* Light gray for dark mode */
+    }
+
+    .dark .markdown-body h4 {
+      font-size: 1.5rem; /* Example font size for h4 */
+      color: #d1d5db; /* Light gray for dark mode */
+    }
+
+    .dark .markdown-body h5 {
+      font-size: 1.25rem; /* Example font size for h5 */
+      color: #d1d5db; /* Light gray for dark mode */
+    }
+
+    .dark .markdown-body h6 {
+      font-size: 1.125rem; /* Example font size for h6 */
+      color: #d1d5db; /* Light gray for dark mode */
     }
 
     /* Paragraphs */
     .markdown-body p {
       font-size: 1.1rem;
       margin-bottom: 1rem;
+      color: #555; /* Light mode paragraphs */
+    }
+
+    .dark .markdown-body p {
+      color: #ddd; /* Dark mode paragraphs */
     }
 
     /* Lists */
     .markdown-body ul {
       margin-bottom: 1rem;
+      list-style-type: "\235f";
     }
 
     .markdown-body ul li {
       margin-bottom: 0.5rem;
       padding-left: 1rem;
+      color: #555; /* Light mode lists */
     }
 
-    .markdown-body ul {
-      list-style-type: "\235f";
+    .dark .markdown-body ul li {
+      color: #ddd; /* Dark mode lists */
     }
 
     /* Links */
     .markdown-body a {
-      color: #0366d6;
+      color: #0366d6; /* Light mode links */
       text-decoration: none;
     }
 
@@ -261,14 +313,22 @@ const {
       text-decoration: underline;
     }
 
+    .dark .markdown-body a {
+      color: #5398e3; /* Dark mode links */
+    }
+
     /* Blockquotes */
     .markdown-body blockquote {
       margin: 1rem 0;
       padding: 0.5rem 1rem;
-      background-color: #f9f9f9;
-      border-left: 4px solid #ccc;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9; /* Light mode blockquote background */
+      border-left: 4px solid #ccc; /* Light mode blockquote border */
+      font-family: "Lucida Sans", sans-serif;
+    }
+
+    .dark .markdown-body blockquote {
+      background-color: #333; /* Dark mode blockquote background */
+      border-left: 4px solid #555; /* Dark mode blockquote border */
     }
 
     /* Code Blocks */
@@ -277,11 +337,15 @@ const {
       border-radius: 5px;
       overflow: auto;
       margin-bottom: 1rem;
+      background-color: #1f2937; /* text-gray-800 */
+      color: #eee; /* Light text for readability */
     }
 
     .markdown-body code {
       padding: 0.2rem 0.4rem;
       border-radius: 3px;
+      background-color: #1f2937; /* text-gray-800 */
+      color: #eee; /* Light text for readability */
     }
 
     /* Tables */
@@ -289,25 +353,43 @@ const {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 1rem;
+      background-color: #fff; /* Light mode table background */
+    }
+
+    .dark .markdown-body table {
+      background-color: #333; /* Dark mode table background */
     }
 
     .markdown-body th,
     .markdown-body td {
       padding: 0.5rem;
-      border: 1px solid #ddd;
+      border: 1px solid #ddd; /* Light mode table border */
       text-align: left;
     }
 
+    .dark .markdown-body th,
+    .dark .markdown-body td {
+      border: 1px solid #444; /* Dark mode table border */
+    }
+
     .markdown-body th {
-      background-color: #f3f3f3;
+      background-color: #f3f3f3; /* Light mode header */
+    }
+
+    .dark .markdown-body th {
+      background-color: #444; /* Dark mode header */
     }
 
     /* Horizontal Rules */
     .markdown-body hr {
       border: 0;
       height: 1px;
-      background: #eee;
+      background: #eee; /* Light mode horizontal rule */
       margin: 2rem 0;
+    }
+
+    .dark .markdown-body hr {
+      background: #444; /* Dark mode horizontal rule */
     }
   </style>
 </MainLayout>

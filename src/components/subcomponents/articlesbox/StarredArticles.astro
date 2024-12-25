@@ -10,7 +10,7 @@ const articles = await getSanityStarredArticles();
 
 <div class={classList + " px-5 pt-5"}>
   <HighlightedHeading title="Starred Articles" />
-  <div class="grid grid-rows-1 gap-5">
+  <div class="grid grid-rows-1 gap-3">
     {
       articles.map((article) => {
         return <StarredArticleBanner article={article} />;
