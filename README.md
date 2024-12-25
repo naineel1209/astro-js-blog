@@ -1,62 +1,81 @@
-# Astro Starter Kit: Minimal
+# Sample AstroJS + Sanity CMS Blog (feat. Daytona)
 
-## TODOs
+A minimalistic blog built using AstroJS and Sanity CMS for content management,
+showcasing how incredibly developer-friendly it is to create a blog. With added
+benefits of Daytona (our fav. Development Environment Manager
+[🔗](https://www.daytona.io/))
 
-- [DONE] make custom components for solo article page
-- [DONE] make every query paginated and limited (LEFT WORK - frontend integration)
-- [DONE] make author schema
-- [DONE] redesign author page completed
-- [DONE] add a view counter to articles
-- [DONE] make a shareable button
-- [DONE] make author to about-me
-- [DONE] make images an cdn
-- [DONE] add all the published articles on the sanity
-- [DONE] solve the issue of deployment failing
-- started linkmaker table-of-contents
-- change the theme to strictly dark mode
+---
+
+## 👀 Features
+
+- Ease of use with AstroJS and Sanity CMS
+- Highly modular schema for blogs
+- Proper utilization of various Astro components
+- Real-time content updates via Sanity
+- "Share with your friends" button for easy sharing
+- View count tracking for each blog post
+- Tags categorization for better content organization
+- Proper Markdown UI rendering, including support for code blocks and inline
+  code spans
+- Save and share your most important code snippets with the world
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Beginner level familiarity with AstroJS & Sanity
+- **Daytona**: Follow the
+  [Daytona installation guide](https://www.daytona.io/docs/installation/installation/).
+- Tons Of Enthusiasm!
+
+### Steps
+
+1. Create a workspace: This command will create a workspace for the repository
+   you are working on:
+
+```bash
+daytona create https://github.com/daytonaio/sample-astro-blog.git
+```
+
+2. If the `postCreateCommand` fails, please run the following command to install the dependencies:
+
+```bash
+pnpm config set store-dir /tmp/pnpm-store && pnpm install
+```
+
+Then, run the following command to set up the environment variables:
+
+```bash
+/bin/bash ./create-env-file.sh
+```
+
+3. Setting up environment variables for Sanity.io: The above command will set up
+   all the required dependencies using `pnpm` and create a `.env` file:
 
 ```sh
-npm create astro@latest -- --template minimal
+SANITY_STUDIO_PROJECT_ID="" #REQUIRED
+SANITY_STUDIO_DATASET="" #REQUIRED - DEFAULT - `production`
+SANITY_STUDIO_TOKEN="" #REQUIRED -  Generate from `Sanity Project > API > Tokens`
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+4. Start the Astro Server: This command will start the Astro development server:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+5. Start the Sanity CMS: In another terminal window, run the following command
+   to start the Sanity Development Studio, where you can edit all the content
+   visible to users:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+pnpm run sanity-dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+6. Hold your horses for a few second!!
+7. Open Sanity Studio: Open your browser and navigate to `http://localhost:3333`
+   to access the Sanity Studio.
+   - Add a new blog to your site: For starters, you can add a sample blog from the project files. Navigate to `src/content/blogs/` and paste the content on the Sanity Studio and click `Publish` to see how it looks on the site.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+🎉 You're all set to explore the power of AstroJS, Sanity CMS, and Daytona!
