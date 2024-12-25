@@ -15,8 +15,11 @@ const {
 
 <a
   href={`/articles/${articleSlug}`}
-  class="underline text-blue-500 text-ellipsis inline"
+  class="relative inline-block text-lg text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 group p-3"
 >
-  {article.title}<i class="bx bxs-plane-alt bx-burst bx-flip-horizontal mx-2"
+  <span class="absolute inset-0 transform scale-95 bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600 opacity-0 rounded-lg transition-transform duration-300 group-hover:opacity-20 group-hover:scale-100"></span>
+  <span class="relative">{article.title}</span>
+  <i
+    class="bx bxs-plane-alt mx-2 text-blue-500 dark:text-blue-400 transition-transform duration-300 group-hover:translate-x-2 group-hover:-rotate-45"
   ></i>
 </a>

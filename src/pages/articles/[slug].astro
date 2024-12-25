@@ -54,7 +54,7 @@ const {
           alt={`${title} cover`}
           class="w-full h-80 mx-auto mt-[2rem] mb-[1rem] rounded-tl-lg rounded-tr-lg object-cover"
         />
-        <div class="w-full text-center">
+        <div class="w-full text-center title-heading">
           <HighlightedHeading title={title} />
           <div class="mt-[-1rem]">
             <p class="text-lg font-semibold">{description}</p>
@@ -64,7 +64,7 @@ const {
               >{author.name}</a
             >
           </p>
-          <div class="flex items-center justify-center gap-[.5rem]">
+          <div class="flex items-center justify-center gap-[.5rem] text-yellow-500">
             <i class="bx bx-show"></i>
             <p>{views || 0} views</p>
           </div>
@@ -193,7 +193,7 @@ const {
     }
 
     /* Headings */
-    h1 {
+    .title-heading h1 {
       font-size: 2.5rem;
       font-family: "Sofia Sans", sans-serif;
       margin-bottom: 1rem;
