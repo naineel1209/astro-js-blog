@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getSanityLatestArticles } from "../../data/articles";
-import HighlightedHeading from "../utils/HighlightedHeading.astro";
 import ArticleBanner from "../subcomponents/article-utils/ArticleBanner.astro";
 
 const LatestArticles = (props) => {

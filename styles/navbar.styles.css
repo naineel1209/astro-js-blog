@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Napoli";
+  src: url("/fonts/Napoli.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Astroz";
+  src: url("/fonts/Astroz.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Pop-out effect */
+.pop-out {
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.pop-out.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.heading {
+  font-family: "Astroz", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.text-shadow-blue {
+  text-shadow: 5px 1px 2px rgba(0, 0, 139, 0.3);
+}
+
+.show-text {
+  display: inline;
+}
+
+.hide-text {
+  display: none;
+}

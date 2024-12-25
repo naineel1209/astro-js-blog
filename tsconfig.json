@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "noImplicitAny": false,  // Allows implicit "any" type
     "module": "esnext",
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
@@ -14,8 +15,12 @@
       ],
       "tslib": [
         "./node_modules/tslib"
+      ],
+      "@/*": [
+        "./src/*"
       ]
-    }
+    },
+    "baseUrl": "."
   },
   "include": [
     "./src/**/*.ts",

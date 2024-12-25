@@ -1,5 +1,6 @@
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/serverless";
 import sanity from "@sanity/astro";
 import { defineConfig } from 'astro/config';
 import { loadEnv } from "vite";
@@ -10,7 +11,9 @@ const { SANITY_STUDIO_PROJECT_ID, SANITY_STUDIO_DATASET, SANITY_STUDIO_TOKEN } =
 // https://astro.build/config
 export default defineConfig({
   site: 'https://naineel-blog.vercel.app',
-  integrations: [tailwind(), react(), sanity({
+  integrations: [tailwind({
+    applyBaseStyles: false,
+  }), react(), sanity({
     projectId: SANITY_STUDIO_PROJECT_ID,
     dataset: SANITY_STUDIO_DATASET,
     apiVersion: '2022-07-03',

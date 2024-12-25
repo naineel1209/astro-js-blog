@@ -44,7 +44,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
   </script>
   <style is:global>
     .copy-button {
-      background-color: #007bff;
+      background-color: #007bff; /* Light mode blue */
       color: white;
 
       position: absolute;
@@ -55,6 +55,18 @@ import MainLayout from "../../layouts/MainLayout.astro";
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+    }
+
+    .copy-button:hover {
+      background-color: #0056b3; /* Light mode hover */
+    }
+
+    .dark .copy-button {
+      background-color: #0056b3; /* Dark mode blue */
+    }
+
+    .dark .copy-button:hover {
+      background-color: #003d80; /* Dark mode hover */
     }
   </style>
 </MainLayout>
