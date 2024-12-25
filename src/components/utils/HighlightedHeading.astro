@@ -8,26 +8,25 @@ const { title } = Astro.props;
 
 <style>
   .title {
-    position: relative;
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    @apply relative inline-block text-[2rem] font-bold mb-4;
   }
 
   .title::after {
     content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0.5rem;
-    height: 0.75rem;
-    width: 0;
-    background-color: rgb(219 234 254);
-    z-index: -1;
-    transition: width 0.3s ease;
+    @apply absolute left-0 bottom-2 h-3 w-0 z-[-1] transition-all duration-300 ease-in-out;
   }
 
   .title:hover::after {
-    width: 100%;
+    @apply w-full;
+  }
+
+  /* Light mode styles */
+  :root .title::after {
+    @apply bg-blue-200;
+  }
+
+  /* Dark mode styles */
+  :root.dark .title::after {
+    @apply bg-blue-800;
   }
 </style>

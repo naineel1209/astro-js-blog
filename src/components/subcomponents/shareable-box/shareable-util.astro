@@ -7,33 +7,27 @@ let type = Astro.props.type;
 const shareTypes: {
   [key: string]: {
     icon: string;
-    text: string;
     href: string;
   };
 } = {
   email: {
     icon: "bx bx-mail-send",
-    text: "Share via Email",
     href: `mailto:?subject=${encodeURIComponent("Check out this article")}&body=${link}`,
   },
   twitter: {
     icon: "bx bxl-twitter",
-    text: "Share on Twitter",
     href: `https://twitter.com/intent/tweet?text=${encodeURIComponent("Checkout my latest article on")} ${link}`,
   },
   facebook: {
     icon: "bx bxl-facebook",
-    text: "Share on Facebook",
     href: `https://www.facebook.com/sharer/sharer.php?u=${link}`,
   },
   linkedin: {
     icon: "bx bxl-linkedin",
-    text: "Share on LinkedIn",
     href: `https://www.linkedin.com/shareArticle?mini=true&url=${link}`,
   },
   whatsapp: {
     icon: "bx bxl-whatsapp",
-    text: "Share on WhatsApp",
     href: `https://api.whatsapp.com/send?text=${link}`,
   },
 };
@@ -45,12 +39,9 @@ if (!shareTypes[type]) {
 
 <a
   href={shareTypes[type].href}
-  class="p-4 flex flex-col gap-4 border-2 border-blue-300 rounded-lg shadow-md"
+  class="flex items-center justify-center w-10 h-10 p-4 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-103 font-bold mx-1 hover:mx-4"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <div class="flex items-center gap-[.5rem]">
-    <i class={shareTypes[type].icon}></i>
-    <p>{shareTypes[type].text}</p>
-  </div>
+  <i class={shareTypes[type].icon}></i>
 </a>
